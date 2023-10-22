@@ -1,0 +1,13 @@
+.canvas {
+    display:grid;
+    columns:16;
+}
+
+.color-div {
+    margin:0px;
+    height:15px;
+    width:15px;
+    border: 2px;
+    border-color:white;
+    background-color: black;
+}
