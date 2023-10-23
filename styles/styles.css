@@ -1,6 +1,8 @@
 .canvas {
     display:grid;
-    columns:16;
+    column-gap:0px;
+    grid-column-start:1;
+    grid-column-end:16;
 }
 
 .color-div {
