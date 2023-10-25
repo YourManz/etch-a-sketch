@@ -1,14 +1,15 @@
 .canvas {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust the minmax size as needed */
-    gap: 10px; /* Adjust the gap between grid items as needed */
-    height:600px;
+    display: flex;
     width:600px;
+    height:600px;
+    flex-wrap:wrap;
+    background-color:pink;
   }
 
 .color-div {
-    margin:0px;
-    border: 2px;
-    border-color:white;
+    flex:1;
     background-color: black;
-}
+    border: solid white 2px;
+    align-items:baseline;
+    
+  }
