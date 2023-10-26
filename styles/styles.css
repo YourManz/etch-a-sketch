@@ -1,15 +1,20 @@
 .canvas {
-    display: flex;
-    width:600px;
-    height:600px;
-    flex-wrap:wrap;
-    background-color:pink;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+  height: 600px;
+  flex-direction: column;
+  background-color: pink;
+}
+
+.column-div {
+  display:flex;
+}
 
 .color-div {
-    flex:1;
-    background-color: black;
-    border: solid white 2px;
-    align-items:baseline;
-    
-  }
+  flex-grow: auto;
+  background-color: black;
+  border: 2px solid white;
+  margin: 5px; /* Adjust margin as needed */
+}
+
