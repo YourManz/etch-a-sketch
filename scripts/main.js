@@ -7,21 +7,17 @@ testButton.addEventListener('click', () => {
     canvasDiv.innerHTML = '';
     const gridNumber = inputSlider.value;
     for (let i=0; i < gridNumber; i++) {
-        const columnDiv = document.createElement('div');
-        columnDiv.classList.add('column-div');
-        columnDiv.classList.add(`column-${i}`);
-        canvasDiv.appendChild(columnDiv);
-
+        const rowDiv = document.createElement('div');
+        rowDiv.classList.add('row-div');
+        canvasDiv.appendChild(rowDiv);
         for (let index=0; index < gridNumber; index++) {
-            const colorCreateDiv = document.createElement('div');
-            colorCreateDiv.classList.add('color-div');
-            colorCreateDiv.classList.add(`row-${index}`);
-            columnDiv.appendChild(colorCreateDiv);
+            const colorDiv = document.createElement('div');
+            colorDiv.classList.add('color-div');
+            rowDiv.appendChild(colorDiv);
+
+            colorDiv.addEventListener('click', (event) => {
+                
+            })
         };
     };
 });
-
-const colorDiv = document.querySelector('.color-div');
-colorDiv.addEventListener('click', (event) => {
-    console.log(event.classList);
-})
