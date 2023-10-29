@@ -26,10 +26,14 @@ function addGrid() {
             rowDiv.appendChild(colorDiv);
 
             colorDiv.addEventListener('click', (event) => {
-                    const colorPicker = document.querySelector('.js-color-picker').value;
-                    event.target.style.vackgroundColor = 'white';
-                    event.target.style.backgroundColor = `${colorPicker}`;
+                addColor(event);
             });
         };
     };
+}
+
+function addColor(event) {
+    const colorPicker = document.querySelector('.js-color-picker').value;
+    event.target.style.vackgroundColor = 'white';
+    event.target.style.backgroundColor = `${colorPicker}`;
 }
