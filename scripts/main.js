@@ -1,6 +1,7 @@
 const canvasDiv = document.querySelector('.canvas');
 const inputSlider = document.querySelector('.js-slider-input');
 const clearButton = document.querySelector('.test-button');
+let mouseDown = false;
 
 addGrid();
 
@@ -25,9 +26,18 @@ function addGrid() {
             colorDiv.classList.add('color-div');
             rowDiv.appendChild(colorDiv);
 
-            colorDiv.addEventListener('click', (event) => {
-                addColor(event);
+            colorDiv.addEventListener('mousedown', (event) => {
+                addColor(event)
+                mouseDown=true;
             });
+            colorDiv.addEventListener('mouseup', (event) => {
+                mouseDown=false;
+            });
+            colorDiv.addEventListener('mouseenter', (event) => {
+                if (mouseDown) {
+                    addColor(event);
+                }
+            })
         };
     };
 }
