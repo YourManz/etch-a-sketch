@@ -2,8 +2,33 @@ const canvasDiv = document.querySelector('.canvas');
 const inputSlider = document.querySelector('.js-slider-input');
 const clearButton = document.querySelector('.test-button');
 let mouseDown = false;
+let gridToggle = true;
 
 addGrid();
+
+const gridButton = document.querySelector('.js-toggle-grid');
+
+gridButton.addEventListener('click', (event) => {
+    toggleButton(event);
+    toggleGrid();
+});
+
+function toggleGrid() {
+    const colorDivs = document.querySelectorAll('.color-div');
+    
+    if (gridToggle) {
+        colorDivs.forEach((colorDiv) => {
+            colorDiv.style.border = '0px solid rgb(0,0,0)';
+        });
+        gridToggle = false;
+    } else if (!gridToggle) {
+        colorDivs.forEach((colorDiv) => {
+            colorDiv.style.border = '1px solid rgb(136, 136, 136)';
+        });
+        gridToggle = true;
+    };
+};
+
 
 clearButton.addEventListener('click', () => {
     addGrid();
@@ -12,6 +37,8 @@ clearButton.addEventListener('click', () => {
 inputSlider.addEventListener('mouseup', () => {
     addGrid();
 })
+
+
 
 function addGrid() {
     canvasDiv.innerHTML = '';
@@ -40,6 +67,10 @@ function addGrid() {
             })
         };
     };
+if (!gridToggle) {
+    toggleGrid();
+
+}
 }
 
 function addColor(event) {
@@ -88,26 +119,6 @@ function pickRainbow(event) {
     event.target.style.vackgroundColor = 'white';
     event.target.style.backgroundColor = `rgb(${randomNumber(0, 255)}, ${randomNumber(0, 255)}, ${randomNumber(0, 255)})`;
 };
-
-const gridButton = document.querySelector('.js-toggle-grid');
-let gridToggle = true;
-
-gridButton.addEventListener('click', (event) => {
-    toggleButton(event);
-    const colorDivs = document.querySelectorAll('.color-div');
-    
-    if (gridToggle) {
-        colorDivs.forEach((colorDiv) => {
-            colorDiv.style.border = '0px solid rgb(0,0,0)';
-        });
-        gridToggle = false;
-    } else if (!gridToggle) {
-        colorDivs.forEach((colorDiv) => {
-            colorDiv.style.border = '1px solid rgb(136, 136, 136)';
-        });
-        gridToggle = true;
-    };
-});
 
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
