@@ -5,6 +5,7 @@
   height: 600px;
   background-color: pink;
   align-items: stretch; 
+  border: 1px solid rgb(136, 136, 136);
 }
 
 .row-div {

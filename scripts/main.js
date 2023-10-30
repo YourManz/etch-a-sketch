@@ -70,6 +70,26 @@ function pickRainbow(event) {
     event.target.style.backgroundColor = `rgb(${randomNumber(0, 255)}, ${randomNumber(0, 255)}, ${randomNumber(0, 255)})`;
 };
 
+const gridButton = document.querySelector('.js-toggle-grid');
+let gridToggle = true;
+
+gridButton.addEventListener('click', (event) => {
+    toggleButton(event);
+    const colorDivs = document.querySelectorAll('.color-div');
+    
+    if (gridToggle) {
+        colorDivs.forEach((colorDiv) => {
+            colorDiv.style.border = '0px solid rgb(0,0,0)';
+        });
+        gridToggle = false;
+    } else if (!gridToggle) {
+        colorDivs.forEach((colorDiv) => {
+            colorDiv.style.border = '1px solid rgb(136, 136, 136)';
+        });
+        gridToggle = true;
+    };
+});
+
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
 };
