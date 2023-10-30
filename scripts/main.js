@@ -44,12 +44,31 @@ function addGrid() {
 
 function addColor(event) {
     if (rainbowMode) {
-        pickRainbow(event)
+        pickRainbow(event);
         return;
-    } 
+    } else if (eraserMode) {
+        pickEraser(event);
+        return;
+    }
     const colorPicker = document.querySelector('.js-color-picker').value;
-    event.target.style.vackgroundColor = 'white';
+    event.target.style.backgroundColor = 'white';
     event.target.style.backgroundColor = `${colorPicker}`;
+}
+
+const eraserButton = document.querySelector('.js-eraser');
+let eraserMode = false;
+eraserButton.addEventListener('click' , (event) => {
+    toggleButton(event);
+    if (eraserMode) {
+        eraserMode = false;
+    } else if (!eraserMode) {
+        eraserMode = true;
+    }
+});
+
+function pickEraser(event) {
+    const colorPicker = document.querySelector('.js-color-picker').value;
+    event.target.style.backgroundColor = 'white';
 }
 
 let rainbowMode = false;
