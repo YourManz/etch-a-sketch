@@ -45,7 +45,8 @@ function addGrid() {
 function addColor(event) {
     if (rainbowMode) {
         pickRainbow(event)
-    }
+        return;
+    } 
     const colorPicker = document.querySelector('.js-color-picker').value;
     event.target.style.vackgroundColor = 'white';
     event.target.style.backgroundColor = `${colorPicker}`;
@@ -61,7 +62,6 @@ rainbowButton.addEventListener('click', (event) => {
     } else if (!rainbowMode) {
         rainbowMode = true;
     }
-    console.log(rainbowMode)
 });
 
 function pickRainbow(event) {
@@ -75,5 +75,5 @@ function randomNumber(min, max) {
 };
 
 function toggleButton(event) {
-    event.target.classList.toggle('.toggle-button');
+    event.target.classList.toggle('toggle-button');
 }
